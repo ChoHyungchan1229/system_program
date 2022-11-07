@@ -10,8 +10,8 @@ int main()
         return -1;
     }
     kvs_t*(*open)();
-    int (*put)(kvs_t*, const char*, const char*);
-    char*(*get)(kvs_t*, const char*);
+    int (*put)(kvs_t*, char*, char*);
+    char*(*get)(kvs_t*, char*);
     int (*seek)(kvs_t*);
     int (*close)(kvs_t*);
 

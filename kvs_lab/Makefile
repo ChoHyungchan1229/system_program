@@ -19,7 +19,7 @@ dynamic: kvs_dynamic
 
 kvs_dynamic :
 	$(CC) -shared -o libkvs.so $(LIBSRCS)
-	$(LD_LIBRARY_PATY) $(CC) -fPIC -o  kvs_dynamic dynamic_main.c -ldl
+	$(CC) -fPIC -o  kvs_dynamic dynamic_main.c -ldl
 
 $(TARG) : $(OBJS) $(LARS)
 	$(CC) -o $(TARG) $(OBJS) $(LIBS)  
