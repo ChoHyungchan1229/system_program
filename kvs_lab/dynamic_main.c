@@ -4,14 +4,14 @@
 
 int main()
 {   //handle init
-    void* handle = dlopen("./libkvs.so", RTLD_NOW);
+    void* handle = dlopen("./libkvs.so", RTLD_LAZY);
     if(!handle){
         printf("error : %s\n", dlerror());
         return -1;
     }
     kvs_t*(*open)();
-    int (*put)(kvs_t*,char*, char*);
-    char*(*get)(kvs_t*, char*);
+    int (*put)(kvs_t*, const char*, const char*);
+    char*(*get)(kvs_t*, const char*);
     int (*seek)(kvs_t*);
     int (*close)(kvs_t*);
 

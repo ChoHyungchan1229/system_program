@@ -11,15 +11,15 @@ LOBJS = $(LIBSRCS:.c=.o)
 LARS = libkvs.a
 
 
-all: $(TARG)
-
+all: static dynamic
+	
 static: $(TARG)
 
 dynamic: kvs_dynamic
 
 kvs_dynamic :
 	$(CC) -shared -o libkvs.so $(LIBSRCS)
-	$(CC) -fPIC -o  kvs_dynamic dynamic_main.c -ldl
+	$(LD_LIBRARY_PATY) $(CC) -fPIC -o  kvs_dynamic dynamic_main.c -ldl
 
 $(TARG) : $(OBJS) $(LARS)
 	$(CC) -o $(TARG) $(OBJS) $(LIBS)  
